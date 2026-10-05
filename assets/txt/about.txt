@@ -1,0 +1,18 @@
+About the Library System
+
+The Golden Gate Colleges Library System is a web-based library management system designed to make library services more convenient,
+organized, and accessible for students and library personnel.
+The system provides a centralized platform where users can access information about available books
+and manage their library-related activities online.
+
+Users can browse and search the library catalog, view book information, submit borrowing requests,
+monitor their borrowed books, and keep track of their due dates.
+The system also provides notifications and reminders to help students stay informed about their borrowing activities
+and avoid unnecessary delays or overdue penalties.
+
+For librarians and administrators, the system provides tools for managing the library's book collection,
+user accounts, borrowing and returning transactions, overdue books, penalties, notifications, and reports.
+These features help reduce manual work, keep library records organized, and make it easier to monitor library activities.
+
+By combining book management, borrowing and returning, user management, notifications, and reporting in one platform,
+the system aims to provide a more organized and reliable way of managing library services at Golden Gate Colleges.
