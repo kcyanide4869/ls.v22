@@ -1,0 +1,236 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Golden Gate Colleges Library System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div id="chrome-root" aria-live="polite"></div>
+
+  <!-- Administrator workspace -->
+  <section id="view-adm-dashboard" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section class="adm-welcome-panel">
+          <div class="adm-welcome-icon" aria-hidden="true">📖</div>
+          <div>
+            <h2>Your library, organized and accessible anytime, anywhere</h2>
+            <p>Monitor book availability, borrowing trends, and user activities with ease. Your Library Lending &amp; Tracking System helps librarians and students stay connected through real-time updates, automated notifications, and insightful analytics.</p>
+          </div>
+        </section>
+        <div class="adm-dashboard-grid">
+          <article class="adm-notification-panel">
+            <h3><span aria-hidden="true">♧</span> Notification</h3>
+            <ul aria-label="Notifications">
+              <li class="adm-empty-notification">No notifications yet.</li>
+            </ul>
+          </article>
+          <div class="adm-dashboard-main">
+            <div class="adm-metric-grid">
+              <article class="adm-metric-card">
+                <span class="adm-metric-label">Total Books</span>
+                <strong id="adm-total-books">0</strong>
+                <small>Displays total books available</small>
+              </article>
+              <article class="adm-metric-card">
+                <span class="adm-metric-label">Borrowed Books</span>
+                <strong id="adm-borrowed-books">0</strong>
+                <small>Tracks all borrowed items with borrower details</small>
+              </article>
+              <article class="adm-metric-card">
+                <span class="adm-metric-label">Due Books</span>
+                <strong id="adm-overdue-books">0</strong>
+                <small>Lists overdue items and sends automatic reminders</small>
+              </article>
+            </div>
+            <div class="adm-chart-grid">
+              <article class="adm-chart-panel">
+                <div class="adm-chart-title">Total Books</div>
+                <div class="adm-donut adm-donut-books" id="adm-books-donut"></div>
+                <ul class="adm-legend"><li><i class="dark-green"></i>In The Library: <strong id="adm-books-legend">0</strong></li><li><i class="gold"></i>Borrowed: <strong id="adm-borrowed-legend">0</strong></li><li><i class="red"></i>Overdue: <strong id="adm-overdue-legend">0</strong></li></ul>
+              </article>
+              <article class="adm-chart-panel">
+                <div class="adm-chart-title">Total Users</div>
+                <div class="adm-donut adm-donut-users" id="adm-users-donut"></div>
+                <ul class="adm-legend">
+                  <li><i class="admin-green"></i>Administrator: <strong id="adm-administrators-legend">0</strong></li>
+                  <li><i class="librarian-green"></i>Librarian: <strong id="adm-librarians-legend">0</strong></li>
+                  <li><i class="faculty-green"></i>Faculty: <strong id="adm-faculty-legend">0</strong></li>
+                  <li><i class="student-green"></i>Student: <strong id="adm-students-legend">0</strong></li>
+                  <li><i class="gold"></i>Visitor: <strong id="adm-visitors-legend">0</strong></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-users" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="admin-body-grid">
+        <div class="adm-big-tiles">
+          <button type="button" class="active-red" aria-current="page">📖<br />User Account</button>
+          <div class="adm-stats-box">
+            <div class="lbl">TOTAL USERS</div>
+            <div class="big-red" id="adm-total-users">0</div>
+          </div>
+        </div>
+        <div class="adm-user-management">
+          <div class="subtabs">
+            <button type="button" class="subtab active" data-usersub="confirm">Confirmation</button>
+            <button type="button" class="subtab" data-usersub="deact">Deactivation</button>
+          </div>
+          <div class="search-wrap-rel">
+            <input type="search" class="admin-search-rounded" placeholder="Search" />
+          </div>
+          <div class="white-panel-green-outline">
+            <div class="table-scroll-wrap" style="max-height:480px;overflow:auto">
+              <table class="pdf-table">
+                <thead><tr><th>ID NUMBER</th><th>USER NAME</th><th>USER TYPE</th><th>COURSE</th><th>STATUS</th><th></th></tr></thead>
+                <tbody id="adm-user-rows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-librarians" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Librarian Account — Create Librarian Account</h3>
+        <section class="panel">
+          <form class="stack-form half" id="adm-create-lib">
+            <label>Librarians username<input /></label>
+            <label>Librarians school ID<input /></label>
+            <label>Name<input /></label>
+            <label>School ID number<input /></label>
+            <label>Create Password<input type="password" /></label>
+            <label>Confirm Password<input type="password" /></label>
+            <br>  
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+          <hr class="divider" />
+          <p class="muted">TOTAL LIBRARIAN — 2 · Activity Log preview below</p>
+          <div class="table-responsive"><table class="data-table small"><thead><tr><th>id</th><th>user name</th><th></th></tr></thead><tbody></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-activity" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Librarian Activity Log</h3>
+        <section class="panel">
+          <div class="form-row">
+            <label>Date Range<select><option>Today</option><option>Last 7 Days</option><option>Last 30 Days</option><option>This month</option><option>Custom Range</option></select></label>
+            <button type="button" class="btn btn-primary sm">Confirm</button>
+          </div>
+          <div class="table-responsive"><table class="data-table small"><thead><tr><th>date &amp; time</th><th>Librarian</th><th>action</th><th>details</th></tr></thead><tbody id="adm-log-rows"></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-catalog" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Catalog Oversight</h3>
+        <section class="panel">
+          <p class="mega inline">1,234</p><span class="muted">TOTAL BOOKS</span>
+          <div class="table-responsive"><table class="data-table" id="adm-catalog-table"><thead><tr><th>Book title</th><th>author</th><th>ISBN</th><th>available</th></tr></thead><tbody></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-sms" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Auto Notification Rules</h3>
+        <section class="panel">
+          <div class="form-row">
+            <label class="grow">Template type<select id="sms-type"><option>Borrow Confirmation</option><option>Due Date Reminder</option><option>Overdue Notice</option></select></label>
+          </div>
+          <label class="block">Message
+            <textarea rows="8" class="mono" id="sms-body">Dear [Username], You have successfully borrowed the book: "[Book Title]" by [Author]. Date Borrowed: [Borrow Date]. Return Date: [Return Date]. Thank you for using the Golden Gate Colleges Library System.</textarea>
+          </label>
+          <p class="muted small">Set as Auto Message/SMS — templates support username, book title, author, borrowed date, return date.</p>
+          <button type="button" class="btn btn-primary" id="btn-save-sms">Set as Auto Message/SMS</button>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-reports" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">System Reports &amp; Analytics</h3>
+        <section class="panel">
+          <div class="form-row">
+            <label>Report Type<select><option>User</option><option>Book Inventory</option><option>List of Overdue books</option><option>List of book borrowed</option></select></label>
+            <label>Report Period<select><option>Monthly</option><option>April 2026</option></select></label>
+            <button type="button" class="btn btn-primary sm">Download Report</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-announcements" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Announcement &amp; Communication</h3>
+        <section class="panel">
+          <div class="row-btns"><button type="button" class="btn btn-primary sm">Create Announcement</button></div> <br>
+          <div class="table-responsive"><table class="data-table"><thead><tr><th>ANNOUNCEMENT</th><th>date</th><th></th></tr></thead><tbody id="adm-ann-rows"></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-report-requests" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Report Request</h3>
+        <section class="panel">
+          <input type="search" class="search-input slim-input" placeholder="Search" />
+          <div class="table-responsive"><table class="data-table"><thead><tr><th>id</th><th>name</th><th>status</th><th></th></tr></thead><tbody id="adm-req-rows"></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-adm-logout-confirm" class="view view-dash modal-backdrop-plain">
+    <div class="modal-card small shadow pdf-logout-dialog" role="dialog" aria-modal="true" aria-labelledby="adm-logout-title">
+      <div class="modal-head-pdf modal-head-green">
+        <h3 id="adm-logout-title">Log out</h3>
+      </div>
+      <div class="modal-body-pdf">
+        <p>Are you sure you want to log out?</p>
+        <div class="modal-foot-pdf">
+          <button type="button" class="btn-cancel-soft" onclick="location.href='admin.html'">Cancel</button>
+          <button type="button" class="btn-submit-request" id="confirm-adm-logout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="modal-root" class="modal-layer hidden" aria-hidden="true">
+    <div class="modal-overlay-pdf" data-close-modal></div>
+    <div class="modal-dialog-pdf" role="dialog" aria-modal="true">
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=20261004-threaded-messaging"></script>
+</body>
+</html>

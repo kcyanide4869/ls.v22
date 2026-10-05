@@ -1,0 +1,301 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Gate Colleges Library System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design.css" />
+</head>
+<body>
+  <div id="chrome-root" aria-live="polite"></div>
+  <div id="app">
+    <!-- Home (PDF mint hero card) -->
+    <section id="view-home" class="view view-home">
+      <div class="public-center">
+        <div class="hero-card-pdf">
+          <p class="hero-kicker">Welcome To Golden Gate Colleges Library System</p>
+          <h1 class="hero-hand"><span class="row1">Smart Borrowing</span><br /><span class="row2">Smarter Learning</span></h1>
+          <p class="hero-subkicker">Connects the act of borrowing with the value of education.</p>
+          <button type="button" class="btn-signin-pdf" data-go="login-pick">Sign in</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="view-about" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <article class="login-card-pdf" style="text-align:left">
+          <h2 class="login-welcome">About the Library System</h2>
+          <p class="login-kicker">Golden Gate Colleges Library</p>
+          <br />
+          <p>The Golden Gate Colleges Library System is a web-based library management system designed to make library services more convenient, organized, and accessible for students and library personnel.</p>
+          <p>The system provides a centralized platform where users can access information about available books and manage their library-related activities online.</p>
+          <p>Users can browse and search the library catalog, view book information, submit borrowing requests, monitor their borrowed books, and keep track of their due dates.</p>
+          <p>The system also provides notifications and reminders to help students stay informed about their borrowing activities and avoid unnecessary delays or overdue penalties.</p>
+          <p>For librarians and administrators, the system provides tools for managing the library's book collection, user accounts, borrowing and returning transactions, overdue books, penalties, notifications, and reports. These features help reduce manual work, keep library records organized, and make it easier to monitor library activities.</p>
+          <p>By combining book management, borrowing and returning, user management, notifications, and reporting in one platform, the system aims to provide a more organized and reliable way of managing library services at Golden Gate Colleges.</p>
+          <br />
+          <br />
+          <button type="button" class="btn-home-pill" data-go="home" style="display:block;margin:0 auto">Back To Home Page</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="view-contact" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <article class="login-card-pdf" style="text-align: center">
+          <h2 class="login-welcome">Golden Gate Colleges Library</h2>
+          <p class="login-kicker">Contact Information</p>
+          <br />
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/location.png" alt="" aria-hidden="true" />
+              <p><strong>Address:</strong> P. Prieto Street, Batangas City, Philippines</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/contact.png" alt="" aria-hidden="true" />
+              <p><strong>Telephone:</strong> (To be updated)</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/email.png" alt="" aria-hidden="true" />
+              <p><strong>Email:</strong> (To be updated)</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/time.png" alt="" aria-hidden="true" />
+              <p><strong>Library Hours:</strong> 08:00 AM - 04:00 PM</p>
+            </div>
+          </div>
+          <br />
+          <h3>Need Help?</h3>
+          <p>For questions regarding borrowing, returning books, account concerns, penalties, or other library services, please contact the Golden Gate Colleges Library during operating hours.</p>
+          <br />
+          <br />
+          <button type="button" class="btn-home-pill" data-go="home" style="display:block;margin:0 auto">Back To Home Page</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sign-in role picker -->
+    <section id="view-login-pick" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf">
+          <h2 class="login-welcome">Welcome</h2>
+          <p class="login-kicker">Sign in to access library system</p>
+          <div class="role-picker-groups">
+            <button type="button" class="role-box role-picker-group" data-go="login" aria-label="Student, Faculty, and Visitor">
+              <img src="assets/user.png" alt="" aria-hidden="true" />
+              <span>Student/Faculty, Visitor</span>
+            </button>
+            <button type="button" class="role-box role-picker-group" data-go="login" aria-label="Administrator, Librarian, and Staff">
+              <img src="assets/admin.png" alt="" aria-hidden="true" />
+              <span>Admin,<br />Librarian &amp; Staff</span>
+            </button>
+          </div> <br> <br>
+          <p class="browse-tagline">Browse, Borrow &amp; Track Books Availability</p>
+          <div class="auth-row-pdf role-picker-actions">
+            <button type="button" class="btn-grey-pill" data-go="account-select">Create account</button>
+            <button type="button" class="btn-role-back" data-go="home">← Go Back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account type selection (Figure 1.2) -->
+    <section id="view-account-select" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf">
+          <h2 class="login-welcome">Create Account</h2>
+          <p class="login-kicker">Select your account type</p>
+          <div class="role-boxes">
+            <button type="button" class="role-box" data-go="register" aria-label="Student or Faculty">
+              <img src="assets/user.png" alt="" aria-hidden="true" />
+              <span>Student / Faculty</span>
+            </button>
+            <button type="button" class="role-box" data-go="register-visitor" aria-label="Visitor">
+              <img src="assets/visitor.png" alt="" aria-hidden="true" />
+              <span>Visitor</span>
+            </button>
+          </div>
+          <p class="browse-tagline muted small">Visitors may borrow books for in-library use only.</p>
+          <button type="button" class="btn-role-back" data-go="login-pick">← Go Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shared login -->
+    <section id="view-login" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf member-login-card">
+          <h2 class="login-welcome">Log In</h2>
+          <p class="login-kicker">Sign in to access the library system</p>
+          <form id="form-login" class="stack-form stack-form-mini" autocomplete="off">
+            <label>Username or Email Address<input name="identifier" type="text" autocomplete="username" placeholder="Username or Email Address" class="pill-input" required /></label>
+            <label>Password<input name="password" type="password" autocomplete="off" placeholder="Password" class="pill-input" required /></label>
+            <button type="submit" class="btn-role-login" style="width:100%">Log In</button>
+            <br />
+            <button type="button" class="link-inline" style="text-align:center;width:100%;border:none;background:none;cursor:pointer;color:#1565c0;font-weight:700;font-size:0.8rem" data-go="forgot">Forgot password</button>
+          </form>
+          <button type="button" class="btn-role-back" data-go="login-pick">← Go Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register (split card per PDF) -->
+    <section id="view-register" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="reg-split">
+          <aside class="reg-aside-dark">
+            <div class="user-icon-big" aria-hidden="true">
+              <img src="assets/user.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="user-icon-label"> STUDENT/FACULTY </div>
+            <p class="reg-note">Note: After signing up wait for the approval of your account.</p>
+            <button type="button" class="btn-role-back" data-go="account-select">← Back</button>
+          </aside>
+          <div class="reg-main">
+            <h2 class="reg-title">Create Account</h2>
+            <p class="reg-has-account">Already have an account? <button type="button" class="link-inline" data-go="login-pick" style="border:none;background:none;cursor:pointer;text-decoration:underline;padding:0">Sign In</button></p>
+            <form id="form-register" class="stack-form-mini">
+              <input class="pill-input" name="name" type="text" placeholder="Name" required />
+              <input class="pill-input" name="email" type="email" placeholder="Email address" required />
+              <input class="pill-input" name="phone" type="tel" placeholder="Phone number (e.g. +639171234567)" required />
+              <input class="pill-input" name="sid" type="text" placeholder="School ID number" required />
+              <div class="pill-row">
+                <select name="userType" aria-label="User type"><option>Student</option><option>Faculty</option></select>
+                <select name="course" aria-label="Course"><option>BSIT</option><option>BSCS</option><option>BSBA</option><option>BSED</option></select>
+              </div>
+              <div class="pw-eye-wrap">
+                <input class="pill-input" name="password" type="password" placeholder="Password" required />
+                <button type="button" class="pw-eye" tabindex="-1" aria-hidden="true">👁</button>
+              </div>
+              <div class="pw-eye-wrap">
+                <input class="pill-input" name="repeatPassword" type="password" placeholder="Repeat Password" required />
+                <button type="button" class="pw-eye" tabindex="-1" aria-hidden="true">👁</button>
+              </div>
+              <button type="submit" class="btn-role-login">Next</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visitor registration (Figure 1.4) -->
+    <section id="view-register-visitor" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="reg-split">
+          <aside class="reg-aside-dark">
+            <div class="user-icon-big" aria-hidden="true">
+              <img src="assets/visitor.png" alt="" aria-hidden="true" />
+            </div>
+            <div class="user-icon-label">VISITOR</div>
+            <p class="reg-note">External users need a referral letter. ₱50 fee applies if school is not an Educational Organization member.</p>
+            <button type="button" class="btn-role-back" data-go="account-select">← Back</button>
+          </aside>
+          <div class="reg-main">
+            <h2 class="reg-title">Visitor Account</h2>
+            <p class="reg-has-account">Already have an account? <button type="button" class="link-inline" data-go="login-pick" style="border:none;background:none;cursor:pointer;text-decoration:underline;padding:0">Sign In</button></p>
+            <form id="form-register-visitor" class="stack-form-mini">
+              <input class="pill-input" name="name" type="text" placeholder="Full name" required />
+              <input class="pill-input" name="email" type="email" placeholder="Email address" required />
+              <input class="pill-input" name="phone" type="tel" placeholder="Phone number" required />
+              <input class="pill-input" name="organization" type="text" placeholder="School / Organization" required />
+              <div class="pw-eye-wrap">
+                <input class="pill-input" name="password" type="password" placeholder="Password" required />
+              </div>
+              <div class="pw-eye-wrap">
+                <input class="pill-input" name="repeatPassword" type="password" placeholder="Repeat Password" required />
+              </div>
+              <button type="submit" class="btn-role-login">Next</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTP (signup) -->
+    <section id="view-otp-signup" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf otp-simple">
+          <h2 class="login-welcome">OTP Verification</h2>
+          <p class="login-kicker">Enter the code from sms we sent to <strong id="otp-phone-demo">+63123456789</strong></p>
+          <input id="otp-signup-input" class="pill-input" style="text-align:center;letter-spacing:.4em;max-width:280px;margin:1rem auto;display:block" maxlength="6" placeholder="______" aria-label="OTP code" />
+          <div class="timer" id="timer-signup">05:00</div>
+          <p class="browse-tagline">Didn't receive an OTP? <button type="button" class="link-inline" id="otp-signup-resend" hidden style="border:none;background:none;cursor:pointer;color:#1565c0">Resend</button></p>
+          <button type="button" class="btn-role-login" id="otp-signup-submit">Submit</button>
+          <br>
+          <button type="button" class="btn-role-back" data-go="register">← Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account verified success (Figure 1.6) -->
+    <section id="view-account-verified" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf otp-simple verified-card">
+          <div class="verified-icon" aria-hidden="true">✓</div>
+          <h2 class="login-welcome">Account Verified</h2>
+          <p class="login-kicker">Your account has been successfully verified. Please wait for administrator approval before signing in.</p>
+          <button type="button" class="btn-next-charcoal" data-go="login-pick">Go to Sign in</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forgot password -->
+    <section id="view-forgot" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf otp-simple">
+          <h2 class="login-welcome">Forgot Password?</h2>
+          <p class="login-kicker">Enter your account contact number—we'll send an OTP.</p>
+          <form id="form-forgot" class="stack-form-mini">
+            <input id="forgot-contact-number" class="pill-input" type="tel" placeholder="Contact Number" required />
+            <button type="submit" class="btn-role-login" style="width:100%">Submit</button>
+          </form>
+          <button type="button" class="btn-role-back" data-go="login">← Back</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-otp-forgot" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf otp-simple">
+          <h2 class="login-welcome">OTP</h2>
+          <p class="login-kicker">Enter the code from sms we sent to <strong id="otp-forgot-phone"></strong></p>
+          <input class="pill-input" style="text-align:center;letter-spacing:.4em;max-width:280px;margin:1rem auto;display:block" maxlength="6" placeholder="______" />
+          <div class="timer">05:00</div>
+          <p class="browse-tagline">Didn't receive an OTP? <button type="button" class="link-inline" style="border:none;background:none;cursor:pointer;color:#1565c0">Resend</button></p>
+          <button type="button" class="btn-role-login" id="otp-forgot-ok">Submit</button>
+          <br>
+          <button type="button" class="btn-role-back" data-go="forgot">← Back</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-reset-password" class="view view-auth hidden">
+      <div class="auth-wrap">
+        <div class="login-card-pdf otp-simple">
+          <h2 class="login-welcome">Reset Password</h2>
+          <form id="form-reset" class="stack-form-mini">
+            <input class="pill-input" type="password" placeholder="New Password" required />
+            <input class="pill-input" type="password" placeholder="Confirm Password" required />
+            <button type="submit" class="btn-next-charcoal" style="width:100%">Change Password</button>
+          </form>
+          <button type="button" class="link-home-serif" data-go="login">← Back</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Modals (PDF-style) -->
+  <div id="modal-root" class="modal-layer hidden" aria-hidden="true">
+    <div class="modal-overlay-pdf" data-close-modal></div>
+    <div class="modal-dialog-pdf" role="dialog" aria-modal="true">
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=20261004-threaded-messaging"></script>
+</body>
+</html>

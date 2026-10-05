@@ -1,0 +1,291 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User — Golden Gate Colleges Library System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design.css" />
+  <link rel="stylesheet" href="css/user.css" />
+</head>
+<body>
+  <div id="chrome-root" aria-live="polite"></div>
+
+
+  <section id="view-member-catalog" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text">
+            <h2>Book Catalog</h2>
+            <p class="sub">Explore our book collection</p>
+          </div>
+          <div class="member-user-menu">
+            <button type="button" class="member-notification-button" data-go="member-notifications" aria-label="Notifications" title="Notifications">
+              <img src="assets/notif.png" alt="" aria-hidden="true" />
+            </button>
+            <button type="button" class="member-user-avatar" aria-label="Open user menu" aria-expanded="false">U</button>
+            <div class="member-user-dropdown" role="menu">
+              <div class="member-user-dropdown-name" data-member-display-name> User </div>
+              <button type="button" data-go="member-profile" role="menuitem">Edit Profile</button>
+              <button type="button" data-go="member-logout-confirm" role="menuitem">Log out</button>
+            </div>
+          </div>
+        </header>
+        <div class="search-pdf-wrap">
+          <input type="search" id="catalog-search" class="search-pdf" placeholder="Search by title or author" autocomplete="off" />
+        </div>
+        <div class="table-shell-pdf">
+          <div class="table-scroll-wrap">
+            <table class="pdf-table" id="catalog-table">
+              <thead><tr><th>Book title</th><th>Author</th><th>ISBN</th><th>Available Book</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-categories" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Book Categories</h2><p class="sub">Browse books by subject</p></div>
+        </header>
+        <section class="member-category-panel" aria-labelledby="member-category-heading">
+          <h3 id="member-category-heading">Choose a category</h3>
+          <div class="member-category-grid">
+            <button type="button" class="member-category-card" data-catalog-category="Fiction" aria-pressed="false">Fiction</button>
+            <button type="button" class="member-category-card" data-catalog-category="Non-fiction" aria-pressed="false">Non-fiction</button>
+            <button type="button" class="member-category-card" data-catalog-category="Literature" aria-pressed="false">Literature</button>
+            <button type="button" class="member-category-card" data-catalog-category="History" aria-pressed="false">History</button>
+            <button type="button" class="member-category-card" data-catalog-category="Science" aria-pressed="false">Science</button>
+            <button type="button" class="member-category-card" data-catalog-category="Technology" aria-pressed="false">Technology</button>
+            <button type="button" class="member-category-card" data-catalog-category="Education" aria-pressed="false">Education</button>
+            <button type="button" class="member-category-card" data-catalog-category="Reference" aria-pressed="false">Reference</button>
+            <button type="button" class="member-category-card" data-catalog-category="Arts and Culture" aria-pressed="false">Arts and Culture</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-cart" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Books Cart</h2><p class="sub">View your cart</p></div>
+        </header>
+        <div class="table-shell-pdf">
+          <div class="table-scroll-wrap"><table class="pdf-table" id="cart-table"><thead><tr><th>Book title</th><th>Author</th><th>ISBN</th><th>Available Book</th><th><button type="button" class="btn-submit-request" id="borrow-all" disabled>Borrow All</button></th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-borrowed" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Books To Return</h2><p class="sub">View your borrowed books</p></div>
+        </header>
+        <div class="table-shell-pdf"><div class="table-scroll-wrap"><table class="pdf-table" id="borrowed-table"><thead><tr><th>Book title</th><th>Author</th><th>Date Borrowed</th><th>Date To Return</th><th>Return Process</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-notifications" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Received Notifications</h2><p class="sub">View your notification</p></div>
+        </header>
+        <div class="member-notification-tabs" role="tablist" aria-label="Filter notifications">
+          <button type="button" class="member-notification-tab active" role="tab" aria-selected="true" data-notification-filter="all">All</button>
+          <button type="button" class="member-notification-tab" role="tab" aria-selected="false" data-notification-filter="announcements">Announcements</button>
+          <button type="button" class="member-notification-tab" role="tab" aria-selected="false" data-notification-filter="messages">Messages</button>
+          <button type="button" class="member-notification-tab" role="tab" aria-selected="false" data-notification-filter="transactions">Transactions</button>
+          <button type="button" class="member-notification-tab" role="tab" aria-selected="false" data-notification-filter="sent">Sent</button>
+        </div>
+        <ul class="notice-list member-notification-list" id="member-notifications" aria-live="polite"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-transactions" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Transactions History</h2><p class="sub">View your past transactions</p></div>
+        </header>
+        <div class="table-shell-pdf"><div class="table-scroll-wrap"><table class="pdf-table" id="txn-table"><thead><tr><th>Book title</th><th>author</th><th>date</th><th>status</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-contact" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Contact</h2><p class="sub">Send a Message</p></div>
+        </header>
+        <section class="member-contact-panel" aria-labelledby="member-contact-heading">
+          <h2 class="member-contact-title" id="member-contact-heading">Golden Gate Colleges Library</h2>
+          <p class="member-contact-intro">Contact Information</p>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/location.png" alt="" aria-hidden="true" />
+              <p><strong>Address:</strong> P. Prieto Street, Batangas City, Philippines</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/contact.png" alt="" aria-hidden="true" />
+              <p><strong>Telephone:</strong> To be updated</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/email.png" alt="" aria-hidden="true" />
+              <p><strong>Email:</strong> To be updated</p>
+            </div>
+            <div class="contact-info-item">
+              <img src="assets/contact-icons/time.png" alt="" aria-hidden="true" />
+              <p><strong>Library Hours:</strong> 08:00 AM - 04:00 PM</p>
+            </div>
+          </div>
+          <h3>Need Help?</h3>
+          <p>For questions regarding borrowing, returning books, account concerns, penalties, or other library services, please contact the Golden Gate Colleges Library during operating hours.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-contact-message" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Send A Message</h2><p class="sub">Reach out to the library team</p></div>
+        </header>
+        <section class="member-contact-panel" aria-labelledby="member-contact-message-heading">
+          <p class="member-contact-intro" id="member-contact-message-heading">We'd love to hear from you! Don't hesitate to send us a message.</p>
+          <form id="member-contact-form" class="member-contact-form">
+            <p id="member-contact-reason-preview" class="member-contact-reason-preview" hidden></p>
+            <label for="member-contact-preview">Message Preview</label>
+            <textarea id="member-contact-preview" rows="7" placeholder="Your composed message will appear here for review." readonly aria-describedby="member-contact-preview-help"></textarea>
+            <p id="member-contact-preview-help" class="member-contact-preview-help">Compose a message first to review it before sending.</p>
+            <div class="member-contact-actions">
+              <button type="button" class="btn btn-primary" id="compose-member-message">Compose A Message</button>
+              <button type="button" class="btn member-edit-message" id="edit-member-message" hidden>Edit</button>
+              <button type="submit" class="btn btn-primary" id="send-member-message" hidden disabled>Send</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-contact-faq" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>FAQ</h2><p class="sub">Frequently asked questions</p></div>
+        </header>
+        <section class="member-contact-panel member-faq-panel" aria-labelledby="member-faq-heading">
+          <p class="member-contact-intro" id="member-faq-heading">Quick answers to common library questions.</p>
+          <div class="member-faq-list">
+            <details><summary>How long can I borrow a book?</summary><p>Borrowing periods depend on the library's current lending policy. Check the due date shown in Books To Return.</p></details>
+            <details><summary>Why is my borrow request still pending?</summary><p>Borrow requests remain pending until a librarian reviews and approves them.</p></details>
+            <details><summary>How do I return a borrowed book?</summary><p>Open Books To Return, choose Request Return, and bring the book to the library for approval.</p></details>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-calendar" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Calendar Of Activities</h2><p class="sub">View calendar of the library</p></div>
+        </header>
+        <div class="table-shell-pdf" style="padding:1rem;"><div class="calendar-ui" id="member-calendar-mount"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-profile" class="view view-dash">
+    <div class="member-layout">
+      <aside class="sidebar member-sidebar"></aside>
+      <div class="member-main-area">
+        <header class="member-page-head">
+          <img class="book-ico-lg" src="assets/user.png" alt="" aria-hidden="true" />
+          <div class="head-text"><h2>Edit Profile</h2><p class="sub">Update your account information</p></div>
+        </header>
+        <section class="member-profile-panel" aria-labelledby="member-profile-heading">
+          <h3 id="member-profile-heading">Account Details</h3>
+          <form id="member-profile-form" class="member-profile-form">
+            <label for="member-profile-name">Full name</label>
+            <input id="member-profile-name" name="name" type="text" autocomplete="name" required />
+            <label for="member-profile-school-id">School ID</label>
+            <input id="member-profile-school-id" name="schoolId" type="text" autocomplete="off" readonly />
+            <label for="member-profile-phone">Phone number</label>
+            <input id="member-profile-phone" name="phone" type="tel" autocomplete="tel" />
+            <label for="member-profile-email">Email address</label>
+            <input id="member-profile-email" name="email" type="email" autocomplete="email" required />
+            <div class="member-profile-password-heading">Change password <span>(optional)</span></div>
+            <label for="member-profile-current-password">Current password</label>
+            <input id="member-profile-current-password" name="currentPassword" type="password" autocomplete="current-password" />
+            <label for="member-profile-new-password">New password</label>
+            <input id="member-profile-new-password" name="newPassword" type="password" minlength="8" autocomplete="new-password" />
+            <label for="member-profile-confirm-password">Confirm new password</label>
+            <input id="member-profile-confirm-password" name="confirmPassword" type="password" minlength="8" autocomplete="new-password" />
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-member-logout-confirm" class="view view-dash modal-backdrop-plain">
+    <div class="modal-card small shadow pdf-logout-dialog" role="dialog" aria-modal="true" aria-labelledby="member-logout-title">
+      <div class="modal-head-pdf modal-head-green">
+        <h3 id="member-logout-title">Log out</h3>
+      </div>
+      <div class="modal-body-pdf">
+        <p>Are you sure you want to log out?</p>
+        <div class="modal-foot-pdf">
+          <button type="button" class="btn-cancel-soft" onclick="location.href='user.html'">Cancel</button>
+          <button type="button" class="btn-submit-request" id="confirm-member-logout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="modal-root" class="modal-layer hidden" aria-hidden="true">
+    <div class="modal-overlay-pdf" data-close-modal></div>
+    <div class="modal-dialog-pdf" role="dialog" aria-modal="true">
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=20261004-threaded-messaging"></script>
+</body>
+</html>

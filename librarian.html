@@ -1,0 +1,282 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Librarian — Golden Gate Colleges Library System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design.css" />
+  <link rel="stylesheet" href="css/librarian.css" />
+</head>
+<body>
+  <div id="chrome-root" aria-live="polite"></div>
+
+  <!-- Librarian workspace -->
+  <section id="view-lib-dashboard" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section class="lib-welcome-panel">
+          <img src="assets/user.png" alt="" class="lib-welcome-icon" width="100" height="100" />
+          <div>
+            <h2>Your library, simplified and smart</h2>
+            <p>Manage book inventory, track borrowing and returns, and monitor overdue items in one clear view. The Librarian Dashboard empowers staff with real-time updates, automated notifications, and insightful analytics ensuring smooth operations and better service for students and faculty.</p>
+          </div>
+        </section>
+        <div class="lib-dashboard-grid">
+          <article class="lib-notification-panel">
+            <h3><span aria-hidden="true">♧</span> Notification</h3>
+            <ul aria-label="Notifications" id="lib-dashboard-notifications"></ul>
+          </article>
+          <div class="lib-dashboard-main">
+            <div class="lib-metric-grid">
+              <article class="lib-metric-card">
+                <span class="lib-metric-label">Total Books</span>
+                <strong id="lib-total-books">0</strong>
+                <small>Displays total books in the library.</small>
+              </article>
+              <article class="lib-metric-card">
+                <span class="lib-metric-label">Borrowed Book</span>
+                <strong id="lib-borrowed-books">0</strong>
+                <small>Tracks all borrowed items with borrower details and due dates.</small>
+              </article>
+              <article class="lib-metric-card">
+                <span class="lib-metric-label">Due Books</span>
+                <strong id="lib-overdue-books">0</strong>
+                <small>Lists overdue items and sends automatic reminders for returns</small>
+              </article>
+            </div>
+            <div class="lib-chart-grid">
+              <article class="lib-chart-panel">
+                <div class="lib-chart-title"><span>Total Books</span><div class="lib-donut lib-donut-books" id="lib-books-donut" aria-label="Book distribution chart"></div></div>
+                <ul class="lib-legend">
+                  <li><i class="blue"></i>Books <strong id="lib-books-legend">0</strong></li>
+                  <li><i class="gold"></i>Borrowed <strong id="lib-borrowed-legend">0</strong></li>
+                  <li><i class="red"></i>Over Due <strong id="lib-overdue-legend">0</strong></li>
+                </ul>
+              </article>
+              <article class="lib-chart-panel">
+                <div class="lib-chart-title"><span>Total Users</span><div class="lib-donut lib-donut-users" id="lib-users-donut" aria-label="User distribution chart"></div></div>
+                <ul class="lib-legend">
+                  <li><i class="blue"></i>Students <strong id="lib-students-legend">0</strong></li>
+                  <li><i class="gold"></i>Teachers/Faculty <strong id="lib-faculty-legend">0</strong></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-inventory" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <div class="lib-inventory-toolbar">
+          <input type="search" class="search-dashed-lib" id="lib-inv-search" placeholder="Search by title or author" />
+          <button type="button" class="btn-deactivate lib-add-book-btn" id="btn-add-book-open">Add a Book</button>
+        </div>
+        <div class="table-bordered-green lib-inventory-panel">
+          <div class="lib-inventory-scroll lib-borrowing-table-scroll">
+            <table class="pdf-table table-lib" id="lib-inv-table">
+              <thead><tr><th class="book-col">BOOK TITLE</th><th class="mid">AUTHOR</th><th>ISBN</th><th class="avail-col">AVAILABLE BOOK</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-borrowing" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <div class="tabs-inline" role="tablist" style="margin-bottom:.75rem">
+          <button type="button" class="tab active" data-btab="borrow">Borrowing Approval</button>
+          <button type="button" class="tab" data-btab="return">To Be Returned</button>
+          <button type="button" class="tab" data-btab="history">User History</button>
+        </div>
+        <section class="panel" id="lib-btab-borrow">
+          <input type="search" class="search-dashed-lib lib-borrow-search" data-lib-borrow-search data-target="#lib-approve-table tbody" data-colspan="7" aria-label="Search borrowing approvals by ID number or book title" placeholder="Search by ID number or book title..." />
+          <div class="table-bordered-green lib-inventory-panel">
+            <div class="lib-inventory-scroll lib-borrowing-table-scroll">
+              <table class="pdf-table table-lib" id="lib-approve-table">
+                <thead><tr><th class="book-col">ID NUMBER /ORGANIZATION</th><th class="mid">BORROWER'S NAME</th><th>COURSE</th><th>ACCOUNT TYPE</th><th>BOOK TITLE</th><th class="avail-col">AUTHOR</th><th></th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="panel hidden" id="lib-btab-return">
+          <input type="search" class="search-dashed-lib lib-borrow-search" data-lib-borrow-search data-target="#lib-return-table tbody" data-colspan="7" aria-label="Search books to be returned by ID number or book title" placeholder="Search by ID number or book title..." />
+          <div class="table-bordered-green lib-inventory-panel">
+            <div class="lib-inventory-scroll lib-borrowing-table-scroll">
+              <table class="pdf-table table-lib" id="lib-return-table">
+                <thead><tr><th class="book-col">BOOK TITLE</th><th>ISBN</th><th>AUTHOR</th><th class="mid">BORROWER'S NAME</th><th>COURSE</th><th>ACCOUNT TYPE</th><th>WALK-IN ACTION</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="panel hidden" id="lib-btab-history">
+          <input type="search" class="search-dashed-lib lib-borrow-search" data-lib-borrow-search data-target="#lib-history-table tbody" data-colspan="5" aria-label="Search user history by name or ID number" placeholder="Search by name or ID number..." />
+          <div class="table-bordered-green lib-inventory-panel">
+            <div class="lib-inventory-scroll">
+              <table class="pdf-table table-lib" id="lib-history-table">
+                <thead><tr><th class="book-col">ID NUMBER/ORGANIZATION</th><th class="mid">BORROWER'S NAME</th><th class="mid">COURSE</th><th class="mid">ACCOUNT TYPE</th><th></th></tr></thead>
+                <tbody id="lib-history-rows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-policies" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section class="panel">
+          <div class="lib-section-heading lib-policy-header">
+            <div>
+              <h3>Returning Policies</h3>
+              <p>Manage return periods and due dates by account type.</p>
+            </div>
+          </div>
+          <div class="lib-policy-settings">
+            <label>
+              Faculty / Teacher Borrowing Duration
+              <select id="lib-faculty-borrowing-duration">
+                <option value="7">7 Days</option>
+                <option value="14">14 Days</option>
+                <option value="21">21 Days</option>
+              </select>
+            </label>
+            <label>
+              Student / Visitor Borrowing Duration
+              <select id="lib-borrowing-duration">
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="4">4 days</option>
+                <option value="5">5 days</option>
+                <option value="6">6 days</option>
+                <option value="7">7 days</option>
+              </select>
+            </label>
+          </div>
+          <div class="lib-policy-save-row">
+            <button type="button" class="lib-policy-save-btn" id="save-lib-borrowing-duration">Save Settings</button>
+          </div>
+          <p class="muted" id="lib-borrowing-duration-status">New requests use the policy for the borrower’s account type. Existing loans keep their assigned due dates.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-overdue" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section>
+          <div class="table-bordered-green lib-inventory-panel">
+            <div class="lib-inventory-scroll">
+              <table class="pdf-table table-lib lib-overdue-table" id="lib-overdue-table">
+                <thead><tr><th class="book-col">ID NUMBER</th><th class="mid">USER NAME</th><th class="mid">BOOK</th><th class="mid">DATE BORROWED</th><th class="mid">DATE TO RETURN</th><th></th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-messages" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section class="lib-notification-section" aria-labelledby="lib-notification-heading">
+          <div class="lib-section-heading">
+            <div>
+              <h3 id="lib-notification-heading">Notifications</h3>
+              <p>View messages you sent or received and system-generated notifications.</p>
+            </div>
+          </div>
+          <div class="lib-notification-tabs" role="tablist" aria-label="Filter notifications">
+            <button type="button" class="lib-notification-tab active" role="tab" aria-selected="true" data-librarian-notification-filter="all">All</button>
+            <button type="button" class="lib-notification-tab" role="tab" aria-selected="false" data-librarian-notification-filter="Sent">Sent</button>
+            <button type="button" class="lib-notification-tab" role="tab" aria-selected="false" data-librarian-notification-filter="Received">Received</button>
+            <button type="button" class="lib-notification-tab" role="tab" aria-selected="false" data-librarian-notification-filter="System">System</button>
+          </div>
+          <ul class="notice-list librarian lib-inbox-list" id="lib-inbox"></ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-announcements" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <section class="lib-notification-section" aria-labelledby="lib-announcements-heading">
+          <div class="lib-section-heading">
+            <div>
+              <h3 id="lib-announcements-heading">Announcements</h3>
+              <p>Create announcements and view past announcements.</p>
+            </div>
+            <button type="button" class="btn btn-primary sm" id="btn-announce">Create Announcement</button>
+          </div>
+          <ul class="notice-list librarian lib-inbox-list" id="lib-announcements-list"></ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-report" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .75rem;font-family:var(--font-serif)">System Report</h3>
+        <section class="panel">
+          <div class="form-row">
+            <label>Report Type<select><option>User</option><option>Book Inventory</option><option>List of Overdue books</option><option>List of book borrowed</option><option>Active User</option></select></label>
+            <label>Report Period<select><option>Monthly</option><option>April 2026</option></select></label>
+            <button type="button" class="btn btn-primary sm">Request Report</button>
+          </div>
+          <div class="table-responsive lib-staff-table-wrap"><table class="data-table small lib-staff-table"><thead><tr><th>id number</th><th>user name</th><th>user type</th><th>course</th></tr></thead><tbody></tbody></table></div>
+          <button type="button" class="btn btn-ghost sm">Download</button>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-calendar" class="view view-dash">
+    <div class="staff-main-pad">
+      <div class="dash-main-clean">
+        <h3 style="margin:0 0 .85rem;font-family:var(--font-serif)">Edit Calendar</h3>
+        <section class="panel"><div id="lib-calendar-mount"></div></section>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-lib-logout-confirm" class="view view-dash modal-backdrop-plain">
+    <div class="modal-card small shadow pdf-logout-dialog" role="dialog" aria-modal="true" aria-labelledby="lib-logout-title">
+      <div class="modal-head-pdf modal-head-green">
+        <h3 id="lib-logout-title">Log out</h3>
+      </div>
+      <div class="modal-body-pdf">
+        <p>Are you sure you want to log out?</p>
+        <div class="modal-foot-pdf">
+          <button type="button" class="btn-cancel-soft" onclick="location.href='librarian.html'">Cancel</button>
+          <button type="button" class="btn-submit-request" id="confirm-lib-logout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="modal-root" class="modal-layer hidden" aria-hidden="true">
+    <div class="modal-overlay-pdf" data-close-modal></div>
+    <div class="modal-dialog-pdf" role="dialog" aria-modal="true">
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=20261004-threaded-messaging"></script>
+</body>
+</html>
